@@ -4,16 +4,15 @@
   "description": "convert any swagger/openapi spec to an mpc server",
   "main": "dist/src/index.js",
   "bin": {
-    "openai-to-mcp": "./.bin/openai-to-mcp.js"
+    "openai-to-mcp": "dist/src/index.js"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc && chmod +x .bin/openai-to-mcp.js",
+    "build": "rm -rf dist && tsc && node -e \"require('fs').chmodSync('dist/src/index.js', '755')\"",
     "build:watch": "tsc -w",
     "pretify": "prettier --write .",
     "lint": "eslint . --ext .ts",
     "start:server": "node dist/resources/server/index.js",
     "start": "node --env-file-if-exists=.env dist/src/index.js",
-    "postinstall": "chmod +x ./.bin/openai-to-mcp.js",
     "test": "node --test dist/tests",
     "test:watch": "node --test --watch dist/tests",
     "test:coverage": "node --test --experimental-test-coverage dist/tests"

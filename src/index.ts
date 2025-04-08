@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { getOpenApiClient, getOperations } from "./operations/openapi-operations";
 import { configureStdioServer, createMcpServer, setupServerTools } from "./operations/smp-operations";
 import logger from "./utils/logger";
