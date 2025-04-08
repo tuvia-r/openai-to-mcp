@@ -1,6 +1,6 @@
 {
   "name": "openai-to-mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "convert any swagger/openapi spec to an mpc server",
   "main": "dist/src/index.js",
   "bin": {
