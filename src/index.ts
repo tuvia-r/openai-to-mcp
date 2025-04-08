@@ -116,6 +116,7 @@ async function startServer(config: ServerConfig): Promise<void> {
   }
   
   if (config.verbose) {
+	logger.level = 'debug';
     logger.info('Starting server with config', { 
       specUrl, 
       baseUrl, 

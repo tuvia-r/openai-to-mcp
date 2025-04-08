@@ -169,9 +169,43 @@ The server supports various authentication methods:
 - `--spec <path>`: Path to OpenAPI specification file
 - `--base-url <url>`: Base URL for API requests
 - `--headers <json>`: Additional headers as JSON string
-- `--watch`: Watch for changes in spec file
-- `--port <number>`: Custom port for the MCP server
 - `--verbose`: Enable detailed logging
+- `--log-level <level>`: Set log level (error, warn, info, debug)
+- `--cert-path <path>`: Path to client certificate file
+- `--key-path <path>`: Path to client key file
+- `--cert-passphrase <string>`: Passphrase for certificate
+- `--oauth-client-id <id>`: OAuth client ID
+- `--oauth-client-secret <secret>`: OAuth client secret
+- `--oauth-token-url <url>`: OAuth token endpoint URL
+- `--oauth-scopes <scopes>`: Comma-separated list of OAuth scopes
+- `--version`: Display version information
+- `--help`: Show help information
+
+## Docker Support
+
+### Building the Docker Image
+
+To build the Docker image:
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/openapi-to-mcp
+cd openapi-to-mcp
+
+# Build the Docker image
+docker build -t openapi-to-mcp .
+```
+
+### Running the Container
+
+You can run the server using Docker:
+
+```bash
+docker run \
+  -e OPENAPI_SPEC_URL="https://petstore.swagger.io/v2/swagger.json" \
+  -e OPENAPI_SPEC_BASE_URL="https://petstore.swagger.io/v2" \
+  openapi-to-mcp
+```
 
 ## Environment Variables
 
@@ -204,27 +238,6 @@ npx openapi-to-mcp --debug
 
 ### Common Issues
 
-1. **SSL Certificate Errors**
-   ```json
-   {
-     "env": {
-       "NODE_TLS_REJECT_UNAUTHORIZED": "0",
-       "NODE_EXTRA_CA_CERTS": "/path/to/cert.pem"
-     }
-   }
-   ```
-
-2. **API Rate Limiting**
-   - Implement retry logic in config:
-   ```json
-   {
-     "env": {
-       "OPENAPI_RETRY_ATTEMPTS": "3",
-       "OPENAPI_RETRY_DELAY": "1000"
-     }
-   }
-   ```
-
 3. **Version Conflicts**
    - Ensure Node.js version ≥ 18
    - Check package.json for compatibility
@@ -239,16 +252,6 @@ npx openapi-to-mcp --debug
   ```powershell
   Get-Content "$env:USERPROFILE\.openapi-mcp\logs\server.log" -Wait
   ```
-
-## Architecture
-
-```mermaid
-graph LR
-    A[OpenAPI Spec] --> B[Spec Parser]
-    B --> C[Operation Generator]
-    C --> D[MCP Tools]
-    D --> E[API Calls]
-```
 
 1. **Spec Parser**: Loads and validates the OpenAPI specification
 2. **Operation Generator**: Converts API operations to MCP tools
