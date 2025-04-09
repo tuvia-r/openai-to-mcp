@@ -1,4 +1,7 @@
 # OpenAPI to MCP Server
+[![NPM version](https://badge.fury.io/js/openai-to-mcp.svg)](https://npmjs.com/package/openai-to-mcp)
+![License](https://img.shields.io/npm/l/openai-to-mcp)
+
 
 A Model Context Protocol (MCP) server that converts any OpenAPI/Swagger specification into an MCP server, allowing Large Language Models (LLMs) to interact with REST APIs through a standardized interface.
 
@@ -294,6 +297,4 @@ MIT License - see LICENSE file for details
 
 ## Support
 
-- [Open an issue](https://github.com/your-username/openapi-to-mcp/issues)
-- [Documentation](https://your-username.github.io/openapi-to-mcp)
-- [Discord Community](https://discord.gg/your-server)
+- [Open an issue](https://https://github.com/tuvia-r/openai-to-mcp/issues)
