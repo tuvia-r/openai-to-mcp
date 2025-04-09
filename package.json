@@ -6,6 +6,11 @@
   "bin": {
     "openai-to-mcp": "./bin/index.js"
   },
+  "repository": {
+    "url": "https://github.com/tuvia-r/openai-to-mcp.git",
+    "type": "git"
+  },
+  "readme": "https://github.com/tuvia-r/openai-to-mcp/blob/main/README.md",
   "scripts": {
     "build": "rm -rf dist && tsc && node -e \"require('fs').chmodSync('dist/src/index.js', '755')\"",
     "build:watch": "tsc -w",
