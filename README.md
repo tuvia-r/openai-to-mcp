@@ -297,4 +297,4 @@ MIT License - see LICENSE file for details
 
 ## Support
 
-- [Open an issue](https://https://github.com/tuvia-r/openai-to-mcp/issues)
+- [Open an issue](https://github.com/tuvia-r/openai-to-mcp/issues)
